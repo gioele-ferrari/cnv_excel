@@ -1,9 +1,14 @@
+Param(
+    $inputFile,
+    $outFile
+)
+
 # Combinare il percorso dello script con il nome del file Excel
 $currentDirectory = Split-Path -Parent $MyInvocation.MyCommand.Path
-$excelFile = Join-Path -Path $currentDirectory -ChildPath "prova.xlsx"
+$excelFile = Join-Path -Path $currentDirectory -ChildPath $inputFile
 
 # Percorso di output del file di testo
-$textFile = "prova.txt"
+$textFile = $outFile
 
 # Crea un oggetto Excel
 $excel = New-Object -ComObject Excel.Application
